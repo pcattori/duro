@@ -1,2 +1,9 @@
+# python
+__pycache__/
+*.egg-info/
+
+# mypy
+.mypy_cache/
+
 # pyenv
 .python-version
