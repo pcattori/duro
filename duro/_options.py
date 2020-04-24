@@ -5,11 +5,7 @@ import duro
 
 @dataclass
 class Options:
-    renderer: duro.Renderer = duro.renderer.tty()
-
-
-# TODO(pcattori): multiple renderers
-# TODO(pcattori): redirect stdout/stderr
+    renderer: duro.Renderer = duro.renderers.tty()
 
 
 # intentionally mutable, global

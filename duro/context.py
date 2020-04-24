@@ -4,7 +4,6 @@ from datetime import datetime
 from queue import Queue
 from threading import Thread
 from typing import cast, Optional
-import sys
 
 import duro
 
@@ -43,20 +42,17 @@ context: Optional[Context] = None
 # context managers
 ##################
 
-# TODO(pcattori): yield a printer that clear_eos before printing text
+
 @contextmanager
 def task(task_description: str):
-    if not sys.stdout.isatty():
-        yield
-        return
-
+    write = duro.options.renderer.write
     if context is None:
         with _context():
             with _task(task_description):
-                yield
+                yield write
     else:
         with _task(task_description):
-            yield
+            yield write
 
 
 @contextmanager

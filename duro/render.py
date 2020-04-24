@@ -70,9 +70,8 @@ def _seed(q: duro.MessageQ) -> duro.TaskTree:
             return duro.TaskTree(msg.task)
         else:
             # TODO(pcattori): log warning for ignored messages
-            print("ignore non-seed")
+            print(f"WARN: ignoring non-seed: {msg}")
             q.task_done()
-            pass
 
 
 def _branch(tt: duro.TaskTree, msg: duro.Message) -> duro.TaskTree:

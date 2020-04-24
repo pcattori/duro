@@ -14,6 +14,8 @@ import duro.spinner as spinner
 import duro.render as render
 import duro.renderer as renderer
 
+import duro.renderers as renderers
+
 from duro._options import options
 
 from duro.context import task
